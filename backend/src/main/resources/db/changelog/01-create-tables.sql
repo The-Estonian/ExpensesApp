@@ -10,7 +10,8 @@ CREATE TABLE users
     username varchar(255) NOT NULL,
     password varchar(255) NOT NULL,
     role_id  int          NOT NULL,
-    email    varchar(255) NOT NULL
+    email    varchar(255) NOT NULL,
+    status   varchar(1)   NOT NULL
 );
 
 CREATE TABLE post

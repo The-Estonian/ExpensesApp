@@ -1,6 +1,7 @@
 package ee.news.app.controller.authentication;
 
 import ee.news.app.service.user.dto.LoginDto;
+import ee.news.app.service.user.dto.LoginResponseDto;
 import ee.news.app.service.user.dto.RegistrationDto;
 import ee.news.app.service.user.UserService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -34,7 +35,7 @@ public class AuthenticationController {
             Searches the system for a user by username and password.
             If no match is found, an error with error code 403 (FORBIDDEN) is thrown.""")
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "OK"), @ApiResponse(responseCode = "403", description = "Invalid username or password")})
-    public String login(@RequestBody LoginDto loginDto) {
+    public LoginResponseDto login(@RequestBody LoginDto loginDto) {
         return userService.login(loginDto);
     }
 }

@@ -1,7 +1,7 @@
 package ee.news.app.service.user;
 
 import ee.news.app.persistence.user.User;
-import ee.news.app.service.user.dto.LoginDto;
+import ee.news.app.service.user.dto.LoginResponseDto;
 import ee.news.app.service.user.dto.RegistrationDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -16,6 +16,7 @@ public interface UserMapper {
     @Mapping(source = "email", target = "email")
     User registrationToUser(RegistrationDto registrationDto);
 
-
-    User loginToUser(LoginDto loginDto);
+    @Mapping(source = "id", target = "userId")
+    @Mapping(source = "role.name", target = "roleName")
+    LoginResponseDto toLoginResponse(User user);
 }
