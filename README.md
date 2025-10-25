@@ -19,7 +19,7 @@
 Run the Postgres database via
 
 ```bash
-docker run --name expenseDB -e POSTGRES_DB=expenses -e POSTGRES_PASSWORD=expense -p 5555:5432 -d postgres
+docker run --name newsDB -e POSTGRES_DB=news -e POSTGRES_PASSWORD=randomPassword -p 5555:5432 -d postgres
 ```
 
 Run the frontend with

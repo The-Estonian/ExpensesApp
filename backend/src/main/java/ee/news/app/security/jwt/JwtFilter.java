@@ -1,6 +1,6 @@
-package ee.expenses.app.security.jwt;
+package ee.news.app.security.jwt;
 
-import ee.expenses.app.security.UserDetailsServiceImpl;
+import ee.news.app.security.UserDetailsServiceImpl;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

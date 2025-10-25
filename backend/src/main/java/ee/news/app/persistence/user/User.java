@@ -1,6 +1,6 @@
-package ee.expenses.app.persistence.user;
+package ee.news.app.persistence.user;
 
-import ee.expenses.app.persistence.role.Role;
+import ee.news.app.persistence.role.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -36,8 +36,5 @@ public class User {
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "role_id", nullable = false)
     private Role role;
-
-    @Column(name = "status", nullable = false)
-    private String status;
 
 }

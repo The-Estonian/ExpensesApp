@@ -1,7 +1,7 @@
-package ee.expenses.app.security;
+package ee.news.app.security;
 
-import ee.expenses.app.persistence.user.User;
-import ee.expenses.app.persistence.user.UserRepository;
+import ee.news.app.persistence.user.User;
+import ee.news.app.persistence.user.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;

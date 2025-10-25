@@ -1,4 +1,4 @@
-package ee.expenses.app.controller.expense;
+package ee.news.app.controller.expense;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -7,17 +7,16 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 
-@CrossOrigin(origins = {"http://localhost:5173"}, allowCredentials = "true")
+@CrossOrigin(origins = {"http://localhost:5173", "127.0.0.1:80"}, allowCredentials = "true")
 @RequestMapping("/api/v1")
 @RestController
 @RequiredArgsConstructor
-public class CategoriesController {
+public class NewsController {
 
-    @GetMapping("/expense")
+    @GetMapping("/expenses")
     @Operation(summary = "Returns list of all expenses", description = "If there are no expenses, returns an empty array")
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "OK")})
-    public String getAllSectors() {
+    public String returnExpenses() {
         return "Test";
     }
-
 }

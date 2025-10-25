@@ -1,4 +1,4 @@
-package ee.expenses.app.persistence.user;
+package ee.news.app.persistence.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

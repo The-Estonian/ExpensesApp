@@ -1,4 +1,4 @@
-package ee.expenses.app.security.jwt;
+package ee.news.app.security.jwt;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;

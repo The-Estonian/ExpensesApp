@@ -1,4 +1,4 @@
-package ee.expenses.app.security.jwt;
+package ee.news.app.security.jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

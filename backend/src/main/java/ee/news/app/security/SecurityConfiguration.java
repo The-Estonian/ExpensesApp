@@ -1,6 +1,6 @@
-package ee.expenses.app.security;
+package ee.news.app.security;
 
-import ee.expenses.app.security.jwt.JwtFilter;
+import ee.news.app.security.jwt.JwtFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

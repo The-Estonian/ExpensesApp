@@ -1,13 +1,13 @@
-package ee.expenses.app;
+package ee.news.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ExpensesApp {
+public class NewsApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(ExpensesApp.class, args);
+        SpringApplication.run(NewsApp.class, args);
     }
 
 }

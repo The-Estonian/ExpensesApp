@@ -1,4 +1,4 @@
-package ee.expenses.app.persistence.role;
+package ee.news.app.persistence.role;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;

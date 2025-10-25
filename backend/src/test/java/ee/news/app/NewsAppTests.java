@@ -1,10 +1,10 @@
-package ee.expenses.app;
+package ee.news.app;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ExpensesAppTests {
+class NewsAppTests {
 
     @Test
     void contextLoads() { // tests to be added here later
