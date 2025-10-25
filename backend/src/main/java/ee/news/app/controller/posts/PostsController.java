@@ -6,14 +6,11 @@ import ee.news.app.service.posts.dto.PostsDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
-@CrossOrigin(origins = {"http://localhost:5173", "127.0.0.1:80"}, allowCredentials = "true")
 @RequestMapping("/api/v1")
 @RestController
 @RequiredArgsConstructor
