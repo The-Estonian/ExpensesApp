@@ -49,4 +49,8 @@ public class UserDetailsImpl implements UserDetails {
     public boolean isEnabled() {
         return "ACTIVE".equalsIgnoreCase(user.getStatus());
     }
+
+    public User getUser() {
+        return this.user;
+    }
 }

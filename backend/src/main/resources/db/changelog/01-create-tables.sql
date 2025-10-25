@@ -14,7 +14,7 @@ CREATE TABLE users
     status   varchar(1)   NOT NULL
 );
 
-CREATE TABLE post
+CREATE TABLE posts
 (
     id         serial PRIMARY KEY,
     title      varchar(255),
