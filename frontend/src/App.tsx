@@ -1,55 +1,23 @@
-import {
-  Route,
-  RouterProvider,
-  createBrowserRouter,
-  createRoutesFromElements,
-  Navigate,
-  Outlet,
-} from 'react-router-dom';
-
 import { Suspense, useState } from 'react';
-import Loader from './components/Loader/Loader';
-import Menu from './components/Menu/Menu';
+import Login from './components/Login/Login';
+import Posts from './components/Posts/Posts';
 
 import styles from './App.module.css';
 
 function App() {
-  const [userAuthenticated, setUserAuthenticated] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
 
-  const handleAuthentication = () => {
-    setUserAuthenticated(!userAuthenticated);
+  const setAuthenticated = () => {
+    setLoggedIn(!loggedIn);
   };
-  const router = createBrowserRouter(
-    createRoutesFromElements(
-      <Route
-        element={
-          <div className={styles.root}>
-            <Menu auth={handleAuthentication} />
-            <Outlet />
-          </div>
-        }
-      >
-        <Route
-          path='/'
-          element={
-            <Suspense fallback={<Loader />}>
-              <div>first page</div>
-            </Suspense>
-          }
-        />
-        <Route
-          path='s'
-          element={
-            <Suspense fallback={<Loader />}>
-              <p>second page</p>
-            </Suspense>
-          }
-        />
-        <Route path='*' element={<Navigate to='/' />} />
-      </Route>
-    )
+
+  return (
+    <div>
+      {!loggedIn && <Login setAuthenticated={setAuthenticated} />}
+      {loggedIn && <Posts />}
+      {loggedIn && <span className={styles.logout} onClick={setAuthenticated}>Logout</span>}
+    </div>
   );
-  return <RouterProvider router={router} />;
 }
 
 export default App;

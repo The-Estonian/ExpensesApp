@@ -4,3 +4,23 @@
   height: 100vh;
   width: 100%;
 }
+
+.logout {
+  position: absolute;
+  bottom: 1rem;
+  right: 3rem;
+  margin: 1rem auto;
+  width: fit-content;
+  padding: 0.5rem;
+  cursor: pointer;
+  border: 1px solid white;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: 1s;
+}
+
+.logout:hover {
+  background: white;
+  color: black;
+  border-radius: 5px;
+}

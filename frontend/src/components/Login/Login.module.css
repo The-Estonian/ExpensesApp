@@ -1,0 +1,36 @@
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.loginContainer span {
+  padding: 0.5rem;
+}
+
+.loginContainer input[type='text'] {
+  padding: 0.5rem;
+  outline: none;
+  cursor: text;
+  border-radius: 5px;
+  border: 1px solid white;
+  font-size: 1.2rem;
+}
+
+.loginContainer input[type='submit'] {
+  margin: 1rem auto;
+  width: fit-content;
+  padding: 0.5rem;
+  cursor: pointer;
+  border: 1px solid white;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: 1s;
+}
+
+.loginContainer input[type='submit']:hover{
+  background: white;
+  color: black;
+  border-radius: 5px;
+}
