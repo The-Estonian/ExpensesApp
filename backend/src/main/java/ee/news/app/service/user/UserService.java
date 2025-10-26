@@ -1,6 +1,6 @@
 package ee.news.app.service.user;
 
-import ee.news.app.exceptions.InvalidCredentialsException;
+import ee.news.app.infrastructure.exception.InvalidCredentialsException;
 import ee.news.app.persistence.role.Role;
 import ee.news.app.persistence.role.RoleRepository;
 import ee.news.app.persistence.user.User;

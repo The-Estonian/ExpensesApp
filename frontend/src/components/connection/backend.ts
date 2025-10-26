@@ -5,9 +5,13 @@ export const registerUser = async () =>
     method: 'POST',
     credentials: 'include',
   });
-export const loginUser = async () =>
+export const loginUser = async (data: Record<string, any>) =>
   await fetch(`${API_URL}/api/v1/login`, {
     method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
     credentials: 'include',
   });
 export const newPost = async (formData: FormData) =>

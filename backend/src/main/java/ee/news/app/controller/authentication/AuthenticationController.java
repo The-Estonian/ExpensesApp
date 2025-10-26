@@ -7,6 +7,7 @@ import ee.news.app.service.user.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,7 +35,7 @@ public class AuthenticationController {
             Searches the system for a user by username and password.
             If no match is found, an error with error code 403 (FORBIDDEN) is thrown.""")
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "OK"), @ApiResponse(responseCode = "403", description = "Invalid username or password")})
-    public LoginResponseDto login(@RequestBody LoginDto loginDto) {
+    public LoginResponseDto login(@Valid @RequestBody LoginDto loginDto) {
         return userService.login(loginDto);
     }
 }

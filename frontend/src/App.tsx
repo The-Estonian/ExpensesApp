@@ -12,10 +12,14 @@ function App() {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       {!loggedIn && <Login setAuthenticated={setAuthenticated} />}
       {loggedIn && <Posts />}
-      {loggedIn && <span className={styles.logout} onClick={setAuthenticated}>Logout</span>}
+      {loggedIn && (
+        <span className={styles.logout} onClick={setAuthenticated}>
+          Logout
+        </span>
+      )}
     </div>
   );
 }

@@ -5,11 +5,17 @@
   font-size: 1.2rem;
 }
 
+.loginInput {
+  display: flex;
+  flex-direction: column;
+}
+
 .loginContainer span {
   padding: 0.5rem;
 }
 
-.loginContainer input[type='text'] {
+.loginContainer input[type='text'],
+.loginContainer input[type='password'] {
   padding: 0.5rem;
   outline: none;
   cursor: text;
@@ -18,7 +24,7 @@
   font-size: 1.2rem;
 }
 
-.loginContainer input[type='submit'] {
+.loginContainer button {
   margin: 1rem auto;
   width: fit-content;
   padding: 0.5rem;
@@ -29,7 +35,7 @@
   transition: 1s;
 }
 
-.loginContainer input[type='submit']:hover{
+.loginContainer input[type='submit']:hover {
   background: white;
   color: black;
   border-radius: 5px;
