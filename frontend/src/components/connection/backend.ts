@@ -1,12 +1,12 @@
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+const API_URL = import.meta.env.VITE_API_URL || '/';
 
 export const registerUser = async () =>
-  await fetch(`${API_URL}/api/v1/register`, {
+  await fetch(`${API_URL}api/v1/register`, {
     method: 'POST',
     credentials: 'include',
   });
 export const loginUser = async (data: Record<string, any>) =>
-  await fetch(`${API_URL}/api/v1/login`, {
+  await fetch(`${API_URL}api/v1/login`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -15,13 +15,13 @@ export const loginUser = async (data: Record<string, any>) =>
     credentials: 'include',
   });
 export const newPost = async (formData: FormData) =>
-  await fetch(`${API_URL}/api/v1/posts`, {
+  await fetch(`${API_URL}api/v1/posts`, {
     method: 'POST',
     body: formData,
     credentials: 'include',
   });
 export const getPosts = async () =>
-  await fetch(`${API_URL}/api/v1/posts`, {
+  await fetch(`${API_URL}api/v1/posts`, {
     method: 'GET',
     credentials: 'include',
   });

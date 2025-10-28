@@ -21,7 +21,7 @@ public class PostsController {
     @GetMapping("/posts")
     @Operation(summary = "Returns list of all posts", description = "If there are no posts, returns an empty array")
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "OK")})
-    public List<Posts> getPosts() {
+    public List<PostsDto> getPosts() {
 
         return postsService.allPosts();
     }

@@ -3,6 +3,7 @@ package ee.news.app.security.jwt;
 import ee.news.app.security.UserDetailsServiceImpl;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -29,16 +30,33 @@ public class JwtFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws ServletException, IOException {
-        final String authorizationHeader = request.getHeader("Authorization");
+        String jwt = extractJwtFromRequest(request);
 
+        if (StringUtils.hasText(jwt) && !"null".equals(jwt)) {
+            Optional<String> username = jwtUtil.extractUsername(jwt);
+            validateJwt(request, jwt, username);
+        }
+
+        chain.doFilter(request, response);
+    }
+
+    private String extractJwtFromRequest(HttpServletRequest request) {
+
+        final String authorizationHeader = request.getHeader("Authorization");
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
-            String jwt = authorizationHeader.substring(7);
-            if (StringUtils.hasText(jwt) && !"null".equals(jwt)) {
-                Optional<String> username = jwtUtil.extractUsername(jwt);
-                validateJwt(request, jwt, username);
+            return authorizationHeader.substring(7);
+        }
+
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if ("token".equals(cookie.getName())) {
+                    return cookie.getValue();
+                }
             }
         }
-        chain.doFilter(request, response);
+
+        return null;
     }
 
     private void validateJwt(HttpServletRequest request, String jwt, Optional<String> username) {

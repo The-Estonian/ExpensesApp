@@ -17,4 +17,6 @@ public interface PostsMapper {
     @Mapping(source = "title", target = "title")
     @Mapping(source = "post", target = "post")
     Posts fromDto(PostsDto postsDto);
+
+
 }

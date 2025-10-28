@@ -10,6 +10,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -30,7 +31,12 @@ public class PostsService {
         return "New post saved";
     }
 
-    public List<Posts> allPosts() {
-        return postsRepository.findAll();
+    public List<PostsDto> allPosts() {
+        List<Posts> allPosts = postsRepository.findAll();
+        List<PostsDto> allPostsDto = new ArrayList<>();
+        for (Posts post : allPosts) {
+            allPostsDto.add(postsMapper.toDto(post));
+        }
+        return allPostsDto;
     }
 }

@@ -6,6 +6,10 @@
   width: 100%;
 }
 
+.container{
+  height: 100%;
+}
+
 .logout {
   position: absolute;
   bottom: 1rem;

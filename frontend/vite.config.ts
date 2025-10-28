@@ -16,4 +16,14 @@ export default defineConfig({
       exclude: ['node_modules', 'tests', 'vite.config.ts'],
     },
   },
+  server: {
+    proxy: {
+      // Proxy all requests starting with /api
+      '/api': {
+        target: 'http://localhost:8080', // Your Spring Boot backend address
+        changeOrigin: true, // Needed for virtual hosting
+        secure: false, // Set to false if your backend is HTTP (recommended for dev)
+      },
+    },
+  },
 });

@@ -7,6 +7,8 @@ import ee.news.app.service.user.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,7 +37,24 @@ public class AuthenticationController {
             Searches the system for a user by username and password.
             If no match is found, an error with error code 403 (FORBIDDEN) is thrown.""")
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "OK"), @ApiResponse(responseCode = "403", description = "Invalid username or password")})
-    public LoginResponseDto login(@Valid @RequestBody LoginDto loginDto) {
-        return userService.login(loginDto);
+    public LoginResponseDto login(@Valid @RequestBody LoginDto loginDto, HttpServletResponse response) {
+
+        LoginResponseDto loginResponse = userService.login(loginDto);
+
+        Cookie tokenCookie = new Cookie("token", loginResponse.getToken());
+        tokenCookie.setHttpOnly(true);
+        tokenCookie.setSecure(false);
+        tokenCookie.setPath("/");
+        tokenCookie.setMaxAge(60 * 60);
+
+        Cookie refreshCookie = new Cookie("refreshToken", loginResponse.getRefreshToken());
+        refreshCookie.setHttpOnly(true);
+        refreshCookie.setSecure(false);
+        refreshCookie.setPath("/");
+        refreshCookie.setMaxAge(7 * 24 * 60 * 60);
+
+        response.addCookie(tokenCookie);
+        response.addCookie(refreshCookie);
+        return loginResponse;
     }
 }

@@ -1,0 +1,30 @@
+.postsContainer {
+  width: 70%;
+  margin: 1rem auto;
+  /* border: 1px solid white; */
+}
+
+.post_title {
+  background: black;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 5px 0 0 5px;
+  margin-right: auto;
+}
+
+.post {
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem;
+  border-radius: 5px;
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 7px 29px 0px;
+}
+
+.post_post {
+  width: 100%;
+  margin-right: auto;
+  background: white;
+  color: black;
+  padding: 0.5rem;
+  border-radius: 0 5px 5px 0;
+}
