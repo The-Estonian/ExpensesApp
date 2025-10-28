@@ -4,6 +4,7 @@ import ee.news.app.persistence.posts.Posts;
 import ee.news.app.persistence.posts.PostsRepository;
 import ee.news.app.persistence.user.User;
 import ee.news.app.persistence.user.UserRepository;
+import ee.news.app.service.posts.dto.AddPostDto;
 import ee.news.app.service.posts.dto.PostsDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -20,12 +21,12 @@ public class PostsService {
     private final PostsMapper postsMapper;
     private final UserRepository userRepository;
 
-    public String newPost(PostsDto postDto) {
+    public String newPost(AddPostDto addPostDto) {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
-        Posts newPost = postsMapper.fromDto(postDto);
+        Posts newPost = postsMapper.addFromDto(addPostDto);
         newPost.setUser(user);
         postsRepository.save(newPost);
         return "New post saved";
@@ -38,5 +39,9 @@ public class PostsService {
             allPostsDto.add(postsMapper.toDto(post));
         }
         return allPostsDto;
+    }
+
+    public void deletePost(Integer id) {
+        postsRepository.deleteById(id);
     }
 }

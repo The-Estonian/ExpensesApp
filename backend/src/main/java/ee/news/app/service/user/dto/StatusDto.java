@@ -1,4 +1,4 @@
-package ee.news.app.service.posts.dto;
+package ee.news.app.service.user.dto;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -7,15 +7,12 @@ import lombok.Data;
 import java.io.Serializable;
 
 @Data
-public class PostsDto implements Serializable {
+public class StatusDto implements Serializable {
 
     @NotNull
-    private Integer id;
+    private boolean authenticated;
 
     @Size(max = 20)
     @NotNull
-    private String title;
-
-    @NotNull
-    private String post;
+    private String message;
 }

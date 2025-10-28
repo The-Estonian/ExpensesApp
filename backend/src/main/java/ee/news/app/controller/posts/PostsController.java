@@ -2,6 +2,7 @@ package ee.news.app.controller.posts;
 
 import ee.news.app.persistence.posts.Posts;
 import ee.news.app.service.posts.PostsService;
+import ee.news.app.service.posts.dto.AddPostDto;
 import ee.news.app.service.posts.dto.PostsDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -26,10 +27,17 @@ public class PostsController {
         return postsService.allPosts();
     }
 
-    @PostMapping("/posts")
+    @PostMapping("/posts/add")
     @Operation(summary = "Returns list of all posts", description = "If there are no posts, returns an empty array")
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "OK")})
-    public String newPosts(@RequestBody PostsDto postsDto) {
-        return postsService.newPost(postsDto);
+    public String newPosts(@RequestBody AddPostDto addPostDto) {
+        return postsService.newPost(addPostDto);
+    }
+
+    @DeleteMapping("/posts/{id}")
+    @Operation(summary = "Deletes post", description = "Deletes the post by ID")
+    @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "OK")})
+    public void deletePosts(@PathVariable("id") Integer id) {
+        postsService.deletePost(id);
     }
 }

@@ -11,8 +11,9 @@ public class RegistrationDto implements Serializable {
 
     @Size(max = 20)
     @NotNull
-    private String username;@Size(max = 20)
+    private String username;
 
+    @Size(max = 20)
     @NotNull
     private String password;
 

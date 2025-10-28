@@ -7,10 +7,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 @Data
-public class PostsDto implements Serializable {
-
-    @NotNull
-    private Integer id;
+public class AddPostDto implements Serializable {
 
     @Size(max = 20)
     @NotNull

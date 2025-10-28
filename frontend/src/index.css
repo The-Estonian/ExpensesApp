@@ -8,3 +8,8 @@ body {
   margin: auto;
   background: #062235;
 }
+
+#root {
+  height: 100vh;
+  width: 100%;
+}

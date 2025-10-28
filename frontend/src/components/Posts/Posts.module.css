@@ -18,6 +18,7 @@
   padding: 0.5rem;
   border-radius: 5px;
   box-shadow: rgba(255, 255, 255, 0.2) 0px 7px 29px 0px;
+  margin: 0.5rem 0;
 }
 
 .post_post {
@@ -26,5 +27,21 @@
   background: white;
   color: black;
   padding: 0.5rem;
-  border-radius: 0 5px 5px 0;
+}
+
+.deletePost {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(0, 0, 0);
+  background: rgb(172, 16, 16);
+  padding: 0.5rem;
+  border-radius:0 5px 5px 0;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.deletePost:hover {
+  color: red;
+  background: white;
 }
