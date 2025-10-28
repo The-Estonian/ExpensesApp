@@ -29,9 +29,11 @@ const Posts = () => {
     fetchPosts();
   }, []);
 
-  const handleDelete = (id: string) => {
-    deletePost(id);
-    fetchPosts();
+  const handleDelete = async (id: string) => {
+    const response = await deletePost(id);
+    if (response.ok) {
+      fetchPosts();
+    }
   };
 
   return (
